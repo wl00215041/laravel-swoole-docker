@@ -1,7 +1,7 @@
 FROM php:7.4.1-fpm-alpine3.11
 # Install laravel requirement PHP package
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS libzip-dev sqlite-dev libpng-dev libxml2-dev oniguruma-dev libmcrypt-dev curl curl-dev libcurl
-RUN docker-php-ext-install -j$(nproc) gd bcmath zip
+RUN docker-php-ext-install -j$(nproc) gd bcmath zip pdo_mysql
 RUN pecl install mcrypt-1.0.3 xdebug swoole && docker-php-ext-enable mcrypt swoole
 # Install composer
 ENV COMPOSER_HOME /composer
