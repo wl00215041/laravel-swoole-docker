@@ -1,5 +1,5 @@
 kind: pipeline
-name: Build reviewboard image
+name: Build laravel swoole docker image
 
 steps:
 #### BASE ####
