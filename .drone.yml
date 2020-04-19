@@ -1,0 +1,16 @@
+kind: pipeline
+name: Build reviewboard image
+
+steps:
+#### BASE ####
+- name: Build Image
+  image: plugins/docker
+  settings:
+    repo: cloudeasy/laravel-swoole-docker
+    auto_tag: true
+    auto_tag_suffix: linux-arm64
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    dockerfile: Dockerfile
